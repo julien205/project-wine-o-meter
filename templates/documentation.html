@@ -1,0 +1,33 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Wine-o-meter:doc</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+  
+<body>
+ <div class="centered">
+    <h1>Documentation de l'API</h1>
+    <h3>You will find here the description of how to use our API</h3>
+  <div>
+
+    <h3>URL: https://wine-o-meter-julien.herokuapp.com/api</h3>
+    <h3>This is a very basic API with one Endpoint /api</h3>
+    <div>
+        <h4>The input data should be a dictionnary with one key : "input"</h4>
+        <h4>the value of this key will be a list of lists(one or more)</h4>
+        <h4>you'll have to use a POST method like: res = requests.post(url, json=input)</h4>
+        <p>
+            <code>
+                >>> res = requests.post(https://wine-o-meter-julien.herokuapp.com/api, json={666: [7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]})
+                <br>>>>  assert res.status_code == 200
+                <br>>>> print(res.json())
+            </code>
+        </p>
+    </div>
+ </div>
+</body>
