@@ -11,7 +11,7 @@ model = joblib.load("model.joblib")
 def index():
     return render_template('index.html')
 
-@app.route("/documentation_api")
+@app.route("/documentation")
 def documentation():
      return render_template ('documentation.html')
  
@@ -34,10 +34,10 @@ def api():
         # Load model
         classifier = joblib.load("model.joblib")
         # Predict
-        prediction = classifier.predict([req[key] for key in req.keys()])
+        prediction = classifier.predict([req[key] for key in req.keys()][0])
         # Return the result as JSON but first we need to transform the
         # result so as to be serializable by jsonify()
-        prediction = [str(prediction[index] for index in range(len(prediction)))]
+        prediction = prediction.tolist()
         return jsonify({"prediction": prediction}), 200
     return jsonify({"msg": "Error: request not correct"}),400
 
